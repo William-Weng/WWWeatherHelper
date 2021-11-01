@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WWNetworking",
+        "repositoryURL": "https://github.com/William-Weng/WWNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "10a26e73771de147f9ef490b0028e44b6caf9ea6",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "WWPrint",
+        "repositoryURL": "https://github.com/William-Weng/WWPrint.git",
+        "state": {
+          "branch": null,
+          "revision": "c82d4cf343747b6dfcc5698991cfddc23c73ed04",
+          "version": "1.0.0"
+        }
+      },
+      {
+        "package": "WWWeatherHelper",
+        "repositoryURL": "https://github.com/William-Weng/WWWeatherHelper.git",
+        "state": {
+          "branch": null,
+          "revision": "cc62fdd6a3fa9e981767f9d58c935f8a861eda26",
+          "version": "1.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
