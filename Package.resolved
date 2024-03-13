@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WWNetworking",
+        "repositoryURL": "https://github.com/William-Weng/WWNetworking.git",
+        "state": {
+          "branch": null,
+          "revision": "d47d710216c892d13684de471158d35f67d27399",
+          "version": "1.5.1"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

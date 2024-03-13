@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:5.6
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -12,11 +12,10 @@ let package = Package(
         .library(name: "WWWeatherHelper", targets: ["WWWeatherHelper"]),
     ],
     dependencies: [
-        .package(name: "WWNetworking", url: "https://github.com/William-Weng/WWNetworking.git", from: "1.0.0"),
+        .package(url: "https://github.com/William-Weng/WWNetworking.git", from: "1.5.1"),
     ],
     targets: [
-        .target(name: "WWWeatherHelper", dependencies: ["WWNetworking"]),
-        .testTarget(name: "WWWeatherHelperTests",dependencies: ["WWWeatherHelper"]),
+        .target(name: "WWWeatherHelper", dependencies: ["WWNetworking"], resources: [.copy("Privacy")]),
     ],
     swiftLanguageVersions: [
         .v5

@@ -1,9 +1,9 @@
 # WWWeatherHelper
-[![Swift-5.3](https://img.shields.io/badge/Swift-5.3-orange.svg?style=flat)](https://developer.apple.com/swift/) [![iOS-14.0](https://img.shields.io/badge/iOS-14.0-pink.svg?style=flat)](https://developer.apple.com/swift/) [![Swift Package Manager-SUCCESS](https://img.shields.io/badge/Swift_Package_Manager-SUCCESS-blue.svg?style=flat)](https://developer.apple.com/swift/) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift-5.6](https://img.shields.io/badge/Swift-5.6-orange.svg?style=flat)](https://developer.apple.com/swift/) [![iOS-14.0](https://img.shields.io/badge/iOS-14.0-pink.svg?style=flat)](https://developer.apple.com/swift/) [![Swift Package Manager-SUCCESS](https://img.shields.io/badge/Swift_Package_Manager-SUCCESS-blue.svg?style=flat)](https://developer.apple.com/swift/) [![LICENSE](https://img.shields.io/badge/LICENSE-MIT-yellow.svg?style=flat)](https://developer.apple.com/swift/)
 
-Use [OpenWeatherMap's API](https://openweathermap.org/) to obtain weather-related information for the city or the coordinates.
-
-使用[OpenWeatherMap的API](https://openweathermap.org/)，取得該城市或該坐標的天氣相關資訊。
+### [Introduction - 簡介](https://swiftpackageindex.com/William-Weng)
+- Use [OpenWeatherMap's API](https://openweathermap.org/) to obtain weather-related information for the city or the coordinates.
+- 使用[OpenWeatherMap的API](https://openweathermap.org/)，取得該城市或該坐標的天氣相關資訊。
 
 ![](./Example.gif)
 
@@ -13,6 +13,13 @@ dependencies: [
     .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.0"))
 ]
 ```
+
+### Function - 可用函式
+|函式|功能|
+|-|-|
+|configure(appId:apiURL:)|初始化設定|
+|information(with:result:)|根據『城市名稱』取得氣候的相關數值|
+|information(with:result:)|根據『2D坐標』取得氣候的相關數值|
 
 ### Example
 ```swift

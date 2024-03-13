@@ -41,14 +41,14 @@ open class WWWeatherHelper: NSObject {
     private override init() {}
 }
 
-// MARK: - WWWeatherHelper (public class function)
-extension WWWeatherHelper {
+// MARK: - WWWeatherHelper (public function)
+public extension WWWeatherHelper {
     
     /// [初始化設定](https://home.openweathermap.org/api_keys)
     /// - Parameters:
     ///   - appId: [開發者註冊的AppId](https://medium.com/彼得潘的-swift-ios-app-開發教室/ios-weather-app-part1-申請api-key-解析json-3a90f41dbf68)
     ///   - apiURL: [API的URL => v2.5](https://openweathermap.org/api)
-    public func configure(appId: String, apiURL: String = "https://api.openweathermap.org/data/2.5/weather") {
+    func configure(appId: String, apiURL: String = "https://api.openweathermap.org/data/2.5/weather") {
         self.appId = appId
         self.apiURL = apiURL
     }
@@ -57,7 +57,7 @@ extension WWWeatherHelper {
     /// - Parameters:
     ///   - cityName: 城市名稱 => Taipei
     /// - Returns: Result<Data?, Error>
-    public func information(with cityName: String, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
+    func information(with cityName: String, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
         
         guard let appId = self.appId else { result(.failure(MyError.unregistered)) ;return }
 
@@ -74,7 +74,7 @@ extension WWWeatherHelper {
     /// - Parameters:
     ///   - coordinate: 坐標 => (25.0178, 121.5211)
     /// - Returns: Result<Data?, Error>
-    public func information(with coordinate: CLLocationCoordinate2D, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
+    func information(with coordinate: CLLocationCoordinate2D, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
         
         guard let appId = self.appId else { result(.failure(MyError.unregistered)) ;return }
         
@@ -88,8 +88,8 @@ extension WWWeatherHelper {
     }
 }
 
-// MARK: - WWWeatherHelper (public class function)
-extension WWWeatherHelper {
+// MARK: - WWWeatherHelper (private function)
+private extension WWWeatherHelper {
     
     /// 根據『城市名稱』取得氣候的相關數值
     /// => https://api.openweathermap.org/data/2.5/weather?q=<CityName>&appid=<appId>&units=metric
@@ -98,7 +98,7 @@ extension WWWeatherHelper {
     ///   - appId: 開發者註冊的AppId
     ///   - units: 溫度單位 => 攝氏 (metric)
     ///   - result: Result<WWNetworking.ResponseInformation, Error>
-    private func informationWithCityName(_ cityName: String, appId: String, units: String = "metric", result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
+    func informationWithCityName(_ cityName: String, appId: String, units: String = "metric", result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
                         
         let paramaters = [
             "appid": appId,
@@ -120,7 +120,7 @@ extension WWWeatherHelper {
     ///   - appId: 開發者註冊的AppId
     ///   - units: 溫度單位 => 攝氏 (metric)
     ///   - result: Result<WWNetworking.ResponseInformation, Error>
-    private func informationWithCoordinate(_ coordinate: CLLocationCoordinate2D, appId: String, units: String = "metric", result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
+    func informationWithCoordinate(_ coordinate: CLLocationCoordinate2D, appId: String, units: String = "metric", result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
         
         let paramaters = [
             "appid": appId,
