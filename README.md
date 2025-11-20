@@ -10,7 +10,7 @@
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.4"))
+    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.5"))
 ]
 ```
 
@@ -19,7 +19,9 @@ dependencies: [
 |-|-|
 |configure(appId:)|初始化設定|
 |information(cityName:result:)|根據『城市名稱』取得氣候的相關數值|
+|information(cityName:)|根據『城市名稱』取得氣候的相關數值|
 |information(coordinate:result:)|根據『2D坐標』取得氣候的相關數值|
+|information(coordinate:)|根據『2D坐標』取得氣候的相關數值|
 
 ### Example
 ```swift
@@ -42,10 +44,10 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - ViewController (private class function)
-extension ViewController {
+private extension ViewController {
     
     /// 取得該城市的天氣資訊
-    private func weatherInformationForCity() {
+    func weatherInformationForCity() {
         
         view.endEditing(true)
         
@@ -60,7 +62,7 @@ extension ViewController {
     }
     
     /// 取得該坐標的天氣資訊
-    private func weatherInformationForCoordinate2D() {
+    func weatherInformationForCoordinate2D() {
         
         view.endEditing(true)
         
@@ -83,7 +85,7 @@ extension ViewController {
     
     /// 顯示文字
     /// - Parameter text: Any?
-    private func displayText(_ text: Any?) {
+    func displayText(_ text: Any?) {
         
         guard let text = text else { return }
         DispatchQueue.main.async { self.resultTextView.text = "\(text)" }

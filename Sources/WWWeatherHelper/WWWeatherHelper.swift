@@ -33,7 +33,7 @@ public extension WWWeatherHelper {
     /// [根據『城市名稱』取得氣候的相關數值](https://openweathermap.org/api)
     /// - Parameters:
     ///   - cityName: 城市名稱 => Taipei
-    /// - Returns: Result<Information, Error>
+    ///   - result: Result<Information, Error>
     func information(cityName: String, result: @escaping (Result<Information, Error>) -> Void) {
         
         guard let appId = self.appId else { result(.failure(CustomError.unregistered)) ;return }
@@ -50,7 +50,7 @@ public extension WWWeatherHelper {
     /// 根據『2D坐標』取得氣候的相關數值
     /// - Parameters:
     ///   - coordinate: 坐標 => (25.0178, 121.5211)
-    /// - Returns: Result<Information, Error>
+    ///   - result: Result<Information, Error>
     func information(coordinate: CLLocationCoordinate2D, result: @escaping (Result<Information, Error>) -> Void) {
         
         guard let appId = self.appId else { result(.failure(CustomError.unregistered)) ;return }
@@ -61,6 +61,32 @@ public extension WWWeatherHelper {
             case .failure(let error): result(.failure(error))
             case .success(let info): result(.success(info))
             }
+        }
+    }
+}
+
+// MARK: - WWWeatherHelper (public function)
+public extension WWWeatherHelper {
+ 
+    /// [根據『城市名稱』取得氣候的相關數值](https://openweathermap.org/api)
+    /// - Parameters:
+    ///   - cityName: 城市名稱 => Taipei
+    /// - Returns: Result<Information, Error>
+    func information(cityName: String) async -> Result<Information, Error> {
+        
+        await withCheckedContinuation { continuation in
+            information(cityName: cityName) { continuation.resume(returning: $0)  }
+        }
+    }
+    
+    /// 根據『2D坐標』取得氣候的相關數值
+    /// - Parameters:
+    ///   - coordinate: 坐標 => (25.0178, 121.5211)
+    /// - Returns: Result<Information, Error>
+    func information(coordinate: CLLocationCoordinate2D) async -> Result<Information, Error> {
+        
+        await withCheckedContinuation { continuation in
+            information(coordinate: coordinate) { continuation.resume(returning: $0)  }
         }
     }
 }

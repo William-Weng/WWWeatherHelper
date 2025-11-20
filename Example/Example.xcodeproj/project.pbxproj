@@ -15,7 +15,8 @@
 		810C98D02ECEFC3A001C32DB /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 810C98CF2ECEFC3A001C32DB /* WWWeatherHelper */; };
 		811FFFA42ECF14360006F12A /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 811FFFA32ECF14360006F12A /* WWWeatherHelper */; };
 		81FFD5AA2ECF16ED00BBD478 /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 81FFD5A92ECF16ED00BBD478 /* WWWeatherHelper */; };
-		81FFD5AD2ECF173400BBD478 /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 81FFD5AC2ECF173400BBD478 /* WWWeatherHelper */; };
+		81FFD5B02ECF17A700BBD478 /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 81FFD5AF2ECF17A700BBD478 /* WWWeatherHelper */; };
+		81FFD5B32ECF18DF00BBD478 /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 81FFD5B22ECF18DF00BBD478 /* WWWeatherHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,7 +35,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				81FFD5AA2ECF16ED00BBD478 /* WWWeatherHelper in Frameworks */,
-				81FFD5AD2ECF173400BBD478 /* WWWeatherHelper in Frameworks */,
+				81FFD5B02ECF17A700BBD478 /* WWWeatherHelper in Frameworks */,
+				81FFD5B32ECF18DF00BBD478 /* WWWeatherHelper in Frameworks */,
 				810C98D02ECEFC3A001C32DB /* WWWeatherHelper in Frameworks */,
 				811FFFA42ECF14360006F12A /* WWWeatherHelper in Frameworks */,
 			);
@@ -124,7 +126,8 @@
 				810C98CF2ECEFC3A001C32DB /* WWWeatherHelper */,
 				811FFFA32ECF14360006F12A /* WWWeatherHelper */,
 				81FFD5A92ECF16ED00BBD478 /* WWWeatherHelper */,
-				81FFD5AC2ECF173400BBD478 /* WWWeatherHelper */,
+				81FFD5AF2ECF17A700BBD478 /* WWWeatherHelper */,
+				81FFD5B22ECF18DF00BBD478 /* WWWeatherHelper */,
 			);
 			productName = Example;
 			productReference = 3DBCD87026F198EF00522E3B /* Example.app */;
@@ -154,7 +157,7 @@
 			);
 			mainGroup = 3DBCD86726F198EF00522E3B;
 			packageReferences = (
-				81FFD5AB2ECF173400BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */,
+				81FFD5B12ECF18DF00BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */,
 			);
 			productRefGroup = 3DBCD87126F198EF00522E3B /* Products */;
 			projectDirPath = "";
@@ -398,12 +401,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		81FFD5AB2ECF173400BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */ = {
+		81FFD5B12ECF18DF00BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/William-Weng/WWWeatherHelper";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.3;
+				minimumVersion = 1.0.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -421,9 +424,13 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = WWWeatherHelper;
 		};
-		81FFD5AC2ECF173400BBD478 /* WWWeatherHelper */ = {
+		81FFD5AF2ECF17A700BBD478 /* WWWeatherHelper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 81FFD5AB2ECF173400BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */;
+			productName = WWWeatherHelper;
+		};
+		81FFD5B22ECF18DF00BBD478 /* WWWeatherHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 81FFD5B12ECF18DF00BBD478 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */;
 			productName = WWWeatherHelper;
 		};
 /* End XCSwiftPackageProductDependency section */

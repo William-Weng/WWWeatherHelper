@@ -28,10 +28,10 @@ final class ViewController: UIViewController {
 }
 
 // MARK: - ViewController (private class function)
-extension ViewController {
+private extension ViewController {
     
     /// 取得該城市的天氣資訊
-    private func weatherInformationForCity() {
+    func weatherInformationForCity() {
         
         view.endEditing(true)
         
@@ -46,7 +46,7 @@ extension ViewController {
     }
     
     /// 取得該坐標的天氣資訊
-    private func weatherInformationForCoordinate2D() {
+    func weatherInformationForCoordinate2D() {
         
         view.endEditing(true)
         
@@ -69,7 +69,7 @@ extension ViewController {
     
     /// 顯示文字
     /// - Parameter text: Any?
-    private func displayText(_ text: Any?) {
+    func displayText(_ text: Any?) {
         
         guard let text = text else { return }
         DispatchQueue.main.async { self.resultTextView.text = "\(text)" }

@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/William-Weng/WWWeatherHelper",
       "state" : {
-        "revision" : "6c901448d740646859c1ff3a42a3bfc37ea1dd43",
-        "version" : "1.0.3"
+        "revision" : "7a9705be6f9ce235a5247af58dd1c744294e2a1b",
+        "version" : "1.0.4"
       }
     }
   ],
