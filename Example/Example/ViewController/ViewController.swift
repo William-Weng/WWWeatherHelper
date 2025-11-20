@@ -33,7 +33,7 @@ extension ViewController {
         
         view.endEditing(true)
         
-        guard let cityName = cityNameTextField.text else { self.displayText(WWWeatherHelper.MyError.unknown); return }
+        guard let cityName = cityNameTextField.text else { self.displayText(WWWeatherHelper.CustomError.unknown); return }
         
         WWWeatherHelper.shared.information(with: cityName) { result in
             switch result {
@@ -54,7 +54,7 @@ extension ViewController {
               let longitude = Double(longitudeText),
               let coordinate2D = Optional.some(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         else {
-            self.displayText(WWWeatherHelper.MyError.unknown); return
+            self.displayText(WWWeatherHelper.CustomError.unknown); return
         }
         
         WWWeatherHelper.shared.information(with: coordinate2D) { result in

@@ -3,16 +3,17 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		3D50B80726F2EAA8008805BF /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 3D50B80626F2EAA8008805BF /* WWWeatherHelper */; };
 		3DBCD87426F198EF00522E3B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBCD87326F198EF00522E3B /* AppDelegate.swift */; };
 		3DBCD87826F198EF00522E3B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBCD87726F198EF00522E3B /* ViewController.swift */; };
 		3DBCD87B26F198EF00522E3B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87926F198EF00522E3B /* Main.storyboard */; };
 		3DBCD87D26F198F300522E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87C26F198F300522E3B /* Assets.xcassets */; };
 		3DBCD88026F198F300522E3B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3DBCD87E26F198F300522E3B /* LaunchScreen.storyboard */; };
+		810C98D02ECEFC3A001C32DB /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 810C98CF2ECEFC3A001C32DB /* WWWeatherHelper */; };
+		814333FE2ECEFF5C00B77897 /* WWWeatherHelper in Frameworks */ = {isa = PBXBuildFile; productRef = 814333FD2ECEFF5C00B77897 /* WWWeatherHelper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D50B80726F2EAA8008805BF /* WWWeatherHelper in Frameworks */,
+				810C98D02ECEFC3A001C32DB /* WWWeatherHelper in Frameworks */,
+				814333FE2ECEFF5C00B77897 /* WWWeatherHelper in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +117,8 @@
 			);
 			name = Example;
 			packageProductDependencies = (
-				3D50B80626F2EAA8008805BF /* WWWeatherHelper */,
+				810C98CF2ECEFC3A001C32DB /* WWWeatherHelper */,
+				814333FD2ECEFF5C00B77897 /* WWWeatherHelper */,
 			);
 			productName = Example;
 			productReference = 3DBCD87026F198EF00522E3B /* Example.app */;
@@ -145,7 +148,7 @@
 			);
 			mainGroup = 3DBCD86726F198EF00522E3B;
 			packageReferences = (
-				3D50B80526F2EAA8008805BF /* XCRemoteSwiftPackageReference "WWWeatherHelper" */,
+				814333FC2ECEFF5C00B77897 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */,
 			);
 			productRefGroup = 3DBCD87126F198EF00522E3B /* Products */;
 			projectDirPath = "";
@@ -325,15 +328,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = idv.william.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -345,15 +352,19 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4Q5CYDAG3B;
 				INFOPLIST_FILE = Example/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = idv.william.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -381,20 +392,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3D50B80526F2EAA8008805BF /* XCRemoteSwiftPackageReference "WWWeatherHelper" */ = {
+		814333FC2ECEFF5C00B77897 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/William-Weng/WWWeatherHelper.git";
+			repositoryURL = "https://github.com/William-Weng/WWWeatherHelper";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				minimumVersion = 1.0.3;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3D50B80626F2EAA8008805BF /* WWWeatherHelper */ = {
+		810C98CF2ECEFC3A001C32DB /* WWWeatherHelper */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 3D50B80526F2EAA8008805BF /* XCRemoteSwiftPackageReference "WWWeatherHelper" */;
+			productName = WWWeatherHelper;
+		};
+		814333FD2ECEFF5C00B77897 /* WWWeatherHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 814333FC2ECEFF5C00B77897 /* XCRemoteSwiftPackageReference "WWWeatherHelper" */;
 			productName = WWWeatherHelper;
 		};
 /* End XCSwiftPackageProductDependency section */

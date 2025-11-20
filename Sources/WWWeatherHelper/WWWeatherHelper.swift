@@ -12,27 +12,6 @@ import WWNetworking
 // MARK: - [WWWeatherHelper - OpenWeatherMap => $$$](https://openweathermap.org/)
 open class WWWeatherHelper: NSObject {
     
-    /// 自訂錯誤
-    public enum MyError: Error, LocalizedError {
-        
-        var errorDescription: String { errorMessage() }
-
-        case unknown
-        case notOpenURL
-        case unregistered
-        
-        /// 顯示錯誤說明
-        /// - Returns: String
-        private func errorMessage() -> String {
-
-            switch self {
-            case .unknown: return "未知錯誤"
-            case .notOpenURL: return "打開URL錯誤"
-            case .unregistered: return "尚未註冊"
-            }
-        }
-    }
-    
     public static let shared = WWWeatherHelper()
     
     private(set) var appId: String?
@@ -59,7 +38,7 @@ public extension WWWeatherHelper {
     /// - Returns: Result<Data?, Error>
     func information(with cityName: String, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
         
-        guard let appId = self.appId else { result(.failure(MyError.unregistered)) ;return }
+        guard let appId = self.appId else { result(.failure(CustomError.unregistered)) ;return }
 
         informationWithCityName(cityName, appId: appId) { _result in
             
@@ -76,7 +55,7 @@ public extension WWWeatherHelper {
     /// - Returns: Result<Data?, Error>
     func information(with coordinate: CLLocationCoordinate2D, result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
         
-        guard let appId = self.appId else { result(.failure(MyError.unregistered)) ;return }
+        guard let appId = self.appId else { result(.failure(CustomError.unregistered)) ;return }
         
         informationWithCoordinate(coordinate, appId: appId) { _result in
             
@@ -99,15 +78,15 @@ private extension WWWeatherHelper {
     ///   - units: 溫度單位 => 攝氏 (metric)
     ///   - result: Result<WWNetworking.ResponseInformation, Error>
     func informationWithCityName(_ cityName: String, appId: String, units: String = "metric", result: @escaping (Result<WWNetworking.ResponseInformation, Error>) -> Void) {
-                        
+        
         let paramaters = [
             "appid": appId,
             "q": cityName,
             "units": units
         ]
         
-        WWNetworking.shared.request(with: .GET, urlString: apiURL, contentType: .plain, paramaters: paramaters, headers: nil, httpBody: nil) { _result in
-            switch _result {
+        WWNetworking.shared.request(urlString: apiURL, paramaters: paramaters) { _result_ in
+            switch _result_ {
             case .failure(let error): result(.failure(error))
             case .success(let info): result(.success(info))
             }
@@ -129,8 +108,8 @@ private extension WWWeatherHelper {
             "units": units
         ]
         
-        WWNetworking.shared.request(with: .GET, urlString: apiURL, contentType: .plain, paramaters: paramaters, headers: nil, httpBody: nil) { _result in
-            switch _result {
+        WWNetworking.shared.request(urlString: apiURL, paramaters: paramaters) { _result_ in
+            switch _result_ {
             case .failure(let error): result(.failure(error))
             case .success(let info): result(.success(info))
             }

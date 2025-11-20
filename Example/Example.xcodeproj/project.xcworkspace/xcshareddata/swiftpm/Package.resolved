@@ -1,34 +1,24 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "WWNetworking",
-        "repositoryURL": "https://github.com/William-Weng/WWNetworking.git",
-        "state": {
-          "branch": null,
-          "revision": "10a26e73771de147f9ef490b0028e44b6caf9ea6",
-          "version": "1.0.0"
-        }
-      },
-      {
-        "package": "WWPrint",
-        "repositoryURL": "https://github.com/William-Weng/WWPrint.git",
-        "state": {
-          "branch": null,
-          "revision": "c82d4cf343747b6dfcc5698991cfddc23c73ed04",
-          "version": "1.0.0"
-        }
-      },
-      {
-        "package": "WWWeatherHelper",
-        "repositoryURL": "https://github.com/William-Weng/WWWeatherHelper.git",
-        "state": {
-          "branch": null,
-          "revision": "cc62fdd6a3fa9e981767f9d58c935f8a861eda26",
-          "version": "1.0.0"
-        }
+  "originHash" : "5e4bd5cdb127b198e5899628f734db41d5371315981de369026894387da947cb",
+  "pins" : [
+    {
+      "identity" : "wwnetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWNetworking.git",
+      "state" : {
+        "revision" : "48b103af5d09c4b3c56b184942e670ddf8dc5e92",
+        "version" : "1.8.12"
       }
-    ]
-  },
-  "version": 1
+    },
+    {
+      "identity" : "wwweatherhelper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/William-Weng/WWWeatherHelper",
+      "state" : {
+        "revision" : "7ef6a4f631e5c685ea63b14750529ef4afed6d45",
+        "version" : "1.0.2"
+      }
+    }
+  ],
+  "version" : 3
 }
