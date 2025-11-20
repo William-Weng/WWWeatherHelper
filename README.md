@@ -10,23 +10,19 @@
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.3"))
+    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.4"))
 ]
 ```
 
 ### Function - 可用函式
 |函式|功能|
 |-|-|
-|configure(appId:apiURL:)|初始化設定|
-|information(with:result:)|根據『城市名稱』取得氣候的相關數值|
-|information(with:result:)|根據『2D坐標』取得氣候的相關數值|
+|configure(appId:)|初始化設定|
+|information(cityName:result:)|根據『城市名稱』取得氣候的相關數值|
+|information(coordinate:result:)|根據『2D坐標』取得氣候的相關數值|
 
 ### Example
 ```swift
-import UIKit
-import CoreLocation
-import WWWeatherHelper
-
 final class ViewController: UIViewController {
 
     @IBOutlet weak var cityNameTextField: UITextField!
@@ -34,9 +30,11 @@ final class ViewController: UIViewController {
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
 
+    private let appId = "<appId>"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        WWWeatherHelper.shared.configure(appId: "<appId>")
+        WWWeatherHelper.shared.configure(appId: appId)
     }
     
     @IBAction func weatherInformationForCity(_ sender: UIButton) { weatherInformationForCity() }
@@ -51,12 +49,12 @@ extension ViewController {
         
         view.endEditing(true)
         
-        guard let cityName = cityNameTextField.text else { self.displayText(WWWeatherHelper.MyError.unknown); return }
+        guard let cityName = cityNameTextField.text else { self.displayText(WWWeatherHelper.CustomError.unknown); return }
         
-        WWWeatherHelper.shared.information(with: cityName) { result in
+        WWWeatherHelper.shared.information(cityName: cityName) { result in
             switch result {
             case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.data?._jsonSerialization())
+            case .success(let info): self.displayText(info.dictionary)
             }
         }
     }
@@ -72,13 +70,13 @@ extension ViewController {
               let longitude = Double(longitudeText),
               let coordinate2D = Optional.some(CLLocationCoordinate2D(latitude: latitude, longitude: longitude))
         else {
-            self.displayText(WWWeatherHelper.MyError.unknown); return
+            self.displayText(WWWeatherHelper.CustomError.unknown); return
         }
         
-        WWWeatherHelper.shared.information(with: coordinate2D) { result in
+        WWWeatherHelper.shared.information(coordinate: coordinate2D) { result in
             switch result {
             case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.data?._jsonSerialization())
+            case .success(let info): self.displayText(info.dictionary)
             }
         }
     }

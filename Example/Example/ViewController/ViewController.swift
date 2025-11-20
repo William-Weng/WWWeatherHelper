@@ -16,9 +16,11 @@ final class ViewController: UIViewController {
     @IBOutlet weak var longitudeTextField: UITextField!
     @IBOutlet weak var resultTextView: UITextView!
 
+    private let appId = "<appId>"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        WWWeatherHelper.shared.configure(appId: "<appId>")
+        WWWeatherHelper.shared.configure(appId: appId)
     }
     
     @IBAction func weatherInformationForCity(_ sender: UIButton) { weatherInformationForCity() }
@@ -35,10 +37,10 @@ extension ViewController {
         
         guard let cityName = cityNameTextField.text else { self.displayText(WWWeatherHelper.CustomError.unknown); return }
         
-        WWWeatherHelper.shared.information(with: cityName) { result in
+        WWWeatherHelper.shared.information(cityName: cityName) { result in
             switch result {
             case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.data?._jsonSerialization())
+            case .success(let info): self.displayText(info.dictionary)
             }
         }
     }
@@ -57,10 +59,10 @@ extension ViewController {
             self.displayText(WWWeatherHelper.CustomError.unknown); return
         }
         
-        WWWeatherHelper.shared.information(with: coordinate2D) { result in
+        WWWeatherHelper.shared.information(coordinate: coordinate2D) { result in
             switch result {
             case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.data?._jsonSerialization())
+            case .success(let info): self.displayText(info.dictionary)
             }
         }
     }
@@ -73,16 +75,3 @@ extension ViewController {
         DispatchQueue.main.async { self.resultTextView.text = "\(text)" }
     }
 }
-
-// MARK: - Data (class function)
-extension Data {
-    
-    /// Data => JSON
-    /// - 7b2268747470223a2022626f6479227d => {"http": "body"}
-    /// - Returns: Any?
-    func _jsonSerialization(options: JSONSerialization.ReadingOptions = .allowFragments) -> Any? {
-        let json = try? JSONSerialization.jsonObject(with: self, options: options)
-        return json
-    }
-}
-
