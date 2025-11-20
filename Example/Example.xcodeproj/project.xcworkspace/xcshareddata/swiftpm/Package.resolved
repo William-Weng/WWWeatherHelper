@@ -1,5 +1,5 @@
 {
-  "originHash" : "5e4bd5cdb127b198e5899628f734db41d5371315981de369026894387da947cb",
+  "originHash" : "815ad4d5a33b3be5ddcf2243e8edf310bf7aad33597e1ca49d8151f09872a29a",
   "pins" : [
     {
       "identity" : "wwnetworking",
@@ -8,15 +8,6 @@
       "state" : {
         "revision" : "48b103af5d09c4b3c56b184942e670ddf8dc5e92",
         "version" : "1.8.12"
-      }
-    },
-    {
-      "identity" : "wwweatherhelper",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/William-Weng/WWWeatherHelper",
-      "state" : {
-        "revision" : "7a9705be6f9ce235a5247af58dd1c744294e2a1b",
-        "version" : "1.0.4"
       }
     }
   ],

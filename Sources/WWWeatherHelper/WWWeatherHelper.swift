@@ -47,7 +47,7 @@ public extension WWWeatherHelper {
         }
     }
     
-    /// 根據『2D坐標』取得氣候的相關數值
+    /// [根據『2D坐標』取得氣候的相關數值](https://blog.csdn.net/weixin_44929101/article/details/132624712)
     /// - Parameters:
     ///   - coordinate: 坐標 => (25.0178, 121.5211)
     ///   - result: Result<Information, Error>
