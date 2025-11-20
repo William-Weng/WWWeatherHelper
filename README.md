@@ -43,10 +43,8 @@ final class ViewController: UIViewController {
     @IBAction func infoForCoordinate(_ sender: UIButton) { weatherInformationForCoordinate2D() }
 }
 
-// MARK: - ViewController (private class function)
 private extension ViewController {
     
-    /// 取得該城市的天氣資訊
     func weatherInformationForCity() {
         
         view.endEditing(true)
@@ -61,7 +59,6 @@ private extension ViewController {
         }
     }
     
-    /// 取得該坐標的天氣資訊
     func weatherInformationForCoordinate2D() {
         
         view.endEditing(true)
@@ -83,8 +80,6 @@ private extension ViewController {
         }
     }
     
-    /// 顯示文字
-    /// - Parameter text: Any?
     func displayText(_ text: Any?) {
         
         guard let text = text else { return }
