@@ -48,6 +48,8 @@ private extension ViewController {
     /// 取得該坐標的天氣資訊
     func weatherInformationForCoordinate2D() {
         
+        let this = self
+        
         view.endEditing(true)
         
         guard let latitudeText = latitudeTextField.text,
@@ -61,8 +63,8 @@ private extension ViewController {
         
         WWWeatherHelper.shared.information(coordinate: coordinate2D) { result in
             switch result {
-            case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.dictionary)
+            case .failure(let error): this.displayText(error)
+            case .success(let info): this.displayText(info.dictionary)
             }
         }
     }
@@ -72,6 +74,6 @@ private extension ViewController {
     func displayText(_ text: Any?) {
         
         guard let text = text else { return }
-        DispatchQueue.main.async { self.resultTextView.text = "\(text)" }
+        resultTextView.text = "\(text)"
     }
 }

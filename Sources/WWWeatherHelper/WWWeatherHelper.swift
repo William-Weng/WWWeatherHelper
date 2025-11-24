@@ -16,8 +16,18 @@ open class WWWeatherHelper: NSObject {
     
     private let apiURL = "https://api.openweathermap.org/data/2.5/weather"
     private(set) var appId: String?
-
+    
     private override init() {}
+}
+
+// MARK: - 各地開放數據
+public extension WWWeatherHelper {
+    
+    /// 香港天文台開放數據
+    class HongKongStation {
+        static let shared = HongKongStation()
+        let apiURL = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php"
+    }
 }
 
 // MARK: - WWWeatherHelper (public function)
@@ -63,6 +73,17 @@ public extension WWWeatherHelper {
             }
         }
     }
+    
+    /// 各地氣象觀測站開放數據
+    /// - Parameters:
+    ///   - type: 各地觀測站類型
+    ///   - result: Result<[String: Any], Error>
+    func station(type: StationType, result: @escaping (Result<[String: Any], Error>) -> Void) {
+        
+        switch type {
+        case .HongKong(let lang, let dataType): HongKongStation.shared.information(lang: lang, dataType: dataType) { result($0) }
+        }
+    }
 }
 
 // MARK: - WWWeatherHelper (public function)
@@ -87,6 +108,17 @@ public extension WWWeatherHelper {
         
         await withCheckedContinuation { continuation in
             information(coordinate: coordinate) { continuation.resume(returning: $0)  }
+        }
+    }
+    
+    /// 各地氣象觀測站開放數據
+    /// - Parameters:
+    ///   - type: 各地觀測站類型
+    /// - Returns: Result<[String: Any], Error>
+    func station(type: StationType) async -> Result<[String: Any], Error> {
+
+        await withCheckedContinuation { continuation in
+            station(type: type) { continuation.resume(returning: $0)  }
         }
     }
 }

@@ -10,7 +10,7 @@
 ### [Installation with Swift Package Manager](https://medium.com/彼得潘的-swift-ios-app-開發問題解答集/使用-spm-安裝第三方套件-xcode-11-新功能-2c4ffcf85b4b)
 ```
 dependencies: [
-    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.0.5"))
+    .package(url: "https://github.com/William-Weng/WWWeatherHelper.git", .upToNextMajor(from: "1.1.0"))
 ]
 ```
 
@@ -19,9 +19,11 @@ dependencies: [
 |-|-|
 |configure(appId:)|初始化設定|
 |information(cityName:result:)|根據『城市名稱』取得氣候的相關數值|
-|information(cityName:)|根據『城市名稱』取得氣候的相關數值|
+|information(cityName:)|根據『城市名稱』取得氣候的相關數值 (非同步)|
 |information(coordinate:result:)|根據『2D坐標』取得氣候的相關數值|
-|information(coordinate:)|根據『2D坐標』取得氣候的相關數值|
+|information(coordinate:)|根據『2D坐標』取得氣候的相關數值 (非同步)|
+|station(type:result:)|各地氣象觀測站開放數據|
+|station(type:)|各地氣象觀測站開放數據 (非同步)|
 
 ### Example
 ```swift
@@ -61,6 +63,8 @@ private extension ViewController {
     
     func weatherInformationForCoordinate2D() {
         
+        let this = self
+        
         view.endEditing(true)
         
         guard let latitudeText = latitudeTextField.text,
@@ -74,8 +78,8 @@ private extension ViewController {
         
         WWWeatherHelper.shared.information(coordinate: coordinate2D) { result in
             switch result {
-            case .failure(let error): self.displayText(error)
-            case .success(let info): self.displayText(info.dictionary)
+            case .failure(let error): this.displayText(error)
+            case .success(let info): this.displayText(info.dictionary)
             }
         }
     }
@@ -83,7 +87,7 @@ private extension ViewController {
     func displayText(_ text: Any?) {
         
         guard let text = text else { return }
-        DispatchQueue.main.async { self.resultTextView.text = "\(text)" }
+        resultTextView.text = "\(text)"
     }
 }
 ```
